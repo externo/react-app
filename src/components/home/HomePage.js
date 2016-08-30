@@ -3,7 +3,6 @@ import {Link} from 'react-router';
 
 class HomePage extends React.Component {
     render(){
-        "use strict";
         return (
             <div className="jumbotron">
                 <h1>Pluralsight adn</h1>

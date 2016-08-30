@@ -2,9 +2,11 @@ import webpack from 'webpack';
 import webpackConfig from '../webpack.config.prod';
 import colors from 'colors';
 
+/*eslint-disable no-console */
+
 process.env.NODE_ENV = 'production';
 
-console.log('Generate minified bundle for production'.blue);
+console.log('Generating minified bundle for production...'.blue);
 
 webpack(webpackConfig).run((err, stats) => {
     if (err){
