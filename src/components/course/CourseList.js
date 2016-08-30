@@ -6,11 +6,12 @@ const CourseList = ({courses}) =>{
         <table className="table">
             <thead>
                 <tr>
-                    <th>&nbsp;</th>
+                    <th>Link</th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Category</th>
                     <th>Length</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
