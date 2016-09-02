@@ -13,20 +13,33 @@ export class ManageCoursePage extends React.Component {
         this.state = {
             course: Object.assign({}, this.props.course),
             errors: {},
-            saving: false
+            saving: false,
+            dirty: false
         };
 
         this.updateCourseState = this.updateCourseState.bind(this);
         this.saveCourse = this.saveCourse.bind(this);
+        this.deleteCourse = this.deleteCourse.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.course.id != nextProps.course.id){
-            this.setState({course: Object.assign({}, nextProps.course)});
+        if (nextProps.course) {
+            if (this.props.course.id != nextProps.course.id) {
+                this.setState({course: Object.assign({}, nextProps.course)});
+            }
         }
     }
 
+    componentDidMount () {
+        this.context.router.setRouteLeaveHook(this.props.route, () => {
+            if (this.state.dirty && !confirm('Leave without saving?')) {
+                return false
+            }
+        })
+    }
+
     updateCourseState(event) {
+        this.setState({dirty: true});
         const field = event.target.name;
         let course = this.state.course;
         course[field] = event.target.value;
@@ -53,16 +66,22 @@ export class ManageCoursePage extends React.Component {
         }
         this.setState({saving: true});
         this.props.actions.saveCourse(this.state.course)
-            .then(() => this.redirect())
             .catch(error => {
                 toastr.error(error);
                 this.setState({saving: false});
-            });
+            })
+            .then(() => this.redirect());
+    }
+
+    deleteCourse(event) {
+        event.preventDefault();
+        this.props.actions.deleteCourse(this.state.course.id)
+            .catch(error => toastr.error('manage course page:\n ' + error))
+            .then(() => this.redirect());
     }
 
     redirect(){
         this.setState({saving: false});
-        toastr.success('Course saved');
         this.context.router.push('/courses');
     }
 
@@ -72,6 +91,7 @@ export class ManageCoursePage extends React.Component {
                 allAuthors={this.props.authors}
                 onChange={this.updateCourseState}
                 onSave={this.saveCourse}
+                onDelete={this.deleteCourse}
                 course={this.state.course}
                 errors={this.state.errors}
                 saving={this.state.saving}

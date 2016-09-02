@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import * as courseActions from '../../actions/courseActions';
 import toastr from 'toastr';
 
-const CourseListRow = ({course}) => {
+const CourseListRow = ({course, onDelete}) => {
 
     return (
         <tr>
@@ -19,14 +20,16 @@ const CourseListRow = ({course}) => {
                 <input
                 type="submit"
                 value="Delete"
-                className="btn btn-danger"/>
+                className="btn btn-danger"
+                onClick={onDelete}/>
             </td>
         </tr>
     );
 };
 
 CourseListRow.propTypes = {
-    course: PropTypes.object.isRequired
+    course: React.PropTypes.object.isRequired,
+    onDelete: React.PropTypes.func.isRequired
 };
 
 export default CourseListRow;

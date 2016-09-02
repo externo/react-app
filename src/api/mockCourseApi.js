@@ -8,7 +8,7 @@ const courses = [
         id: "react-flux-building-applications",
         title: "Building Applications in React and Flux",
         watchHref: "http://www.pluralsight.com/courses/react-flux-building-applications",
-        authorId: "cory-house",
+        authorId: "dan-wahlin",
         length: "5:08",
         category: "JavaScript"
     },
@@ -85,7 +85,6 @@ class CourseApi {
                     course.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
                     courses.push(course);
                 }
-
                 resolve(course);
             }, delay);
         });
@@ -94,11 +93,11 @@ class CourseApi {
     static deleteCourse(courseId) {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                const indexOfCourseToDelete = courses.findIndex(course => {
-                    course.courseId == courseId;
-                });
-                courses.splice(indexOfCourseToDelete, 1);
-                resolve();
+                //const indexOfCourseToDelete = courses.findIndex((a) => {
+                //    a.id == courseId;
+                //});
+                console.log('del api: ' + courseId);
+                resolve(courseId);
             }, delay);
         });
     }
