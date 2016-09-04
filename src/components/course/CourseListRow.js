@@ -18,10 +18,11 @@ const CourseListRow = ({course, onDelete}) => {
             <td>{course.length}</td>
             <td>
                 <input
-                type="submit"
-                value="Delete"
-                className="btn btn-danger"
-                onClick={onDelete}/>
+                    id={course.id}
+                    type="submit"
+                    value="Delete"
+                    className="btn btn-danger"
+                    onClick={onDelete}/>
             </td>
         </tr>
     );

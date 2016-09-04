@@ -24,8 +24,7 @@ class CoursesPage extends React.Component {
 
     deleteCourse(event) {
         event.preventDefault();
-        this.props.actions.deleteCourse(this.props.course)
-            .catch(error => toastr.error('courses page:\n ' + error));
+        this.props.actions.deleteCourse(event.target.id);
     }
 
     redirectToAddCoursePage(){
