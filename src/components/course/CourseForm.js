@@ -2,7 +2,7 @@ import React from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
-const CourseForm = ({course, allAuthors, onSave, onChange, onRedirect, dirty, saving, errors}) => {
+const CourseForm = ({course, allAuthors, onSave, onChange, onCancel, dirty, saving, errors}) => {
     return (
         <form>
             <h1>Manage Course</h1>
@@ -47,7 +47,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, onRedirect, dirty, sa
                 disabled={dirty}
                 value="Cancel"
                 className="btn btn-default"
-                onClick={onRedirect}/>
+                onClick={onCancel}/>
         </form>
     );
 };

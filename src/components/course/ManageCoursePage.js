@@ -19,7 +19,7 @@ export class ManageCoursePage extends React.Component {
 
         this.updateCourseState = this.updateCourseState.bind(this);
         this.saveCourse = this.saveCourse.bind(this);
-        this.redirect = this.redirect.bind(this);
+        this.cancel = this.cancel.bind(this);
     }
 
     componentDidMount () {
@@ -71,7 +71,11 @@ export class ManageCoursePage extends React.Component {
         this.setState({saving: false, dirty: false});
     }
 
-    redirect(event){
+    redirect(){
+        this.context.router.push('/courses');
+    }
+
+    cancel(event){
         event.preventDefault();
         this.context.router.push('/courses');
     }
@@ -82,7 +86,7 @@ export class ManageCoursePage extends React.Component {
                 allAuthors={this.props.authors}
                 onChange={this.updateCourseState}
                 onSave={this.saveCourse}
-                onRedirect={this.redirect}
+                onCancel={this.cancel}
                 dirty={this.state.dirty}
                 course={this.state.course}
                 errors={this.state.errors}
