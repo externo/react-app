@@ -22,20 +22,20 @@ export class ManageCoursePage extends React.Component {
         this.deleteCourse = this.deleteCourse.bind(this);
     }
 
+    componentDidMount () {
+        this.context.router.setRouteLeaveHook(this.props.route, () => {
+            if (this.state.dirty && !confirm('Leave without saving?')) {
+                return false;
+            }
+        })
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.course) {
             if (this.props.course.id != nextProps.course.id) {
                 this.setState({course: Object.assign({}, nextProps.course)});
             }
         }
-    }
-
-    componentDidMount () {
-        this.context.router.setRouteLeaveHook(this.props.route, () => {
-            if (this.state.dirty && !confirm('Leave without saving?')) {
-                return false
-            }
-        })
     }
 
     updateCourseState(event) {
