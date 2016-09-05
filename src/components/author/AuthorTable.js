@@ -5,7 +5,7 @@ import {Table, Column, Cell} from 'fixed-data-table';
 
 const AuthorTable = ({authors, onDelete}) => {
     const rowHight = 50;
-    
+
     return (
         <Table
         width={400}

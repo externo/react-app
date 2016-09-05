@@ -49,8 +49,13 @@ export class ManageAuthorPage extends React.Component {
         let formIsValid = true;
         let errors = {};
 
-        if (this.state.author.firstName.length < 1) {
+        if (this.state.author.firstName.length < 3) {
             errors.firstName = 'First name must be at least 1 characters.';
+            formIsValid = false;
+        }
+
+        if (this.state.author.lastName.length < 3) {
+            errors.lastName = 'Last name must be at least 1 characters.';
             formIsValid = false;
         }
 

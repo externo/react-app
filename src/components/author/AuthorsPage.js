@@ -18,6 +18,10 @@ class AuthorsPage extends React.Component {
         this.props.actions.deleteAuthor(event.target.id);
     }
 
+    redirectToAddAuthorPage(){
+        browserHistory.push('/author');
+    }
+
     render(){
         const {authors} = this.props;
 
