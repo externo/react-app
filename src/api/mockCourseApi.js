@@ -96,7 +96,6 @@ class CourseApi {
                 //const indexOfCourseToDelete = courses.findIndex((a) => {
                 //    a.id == courseId;
                 //});
-                console.log('del api: ' + courseId);
                 resolve(courseId);
             }, delay);
         });

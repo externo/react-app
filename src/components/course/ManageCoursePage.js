@@ -27,7 +27,7 @@ export class ManageCoursePage extends React.Component {
             if (this.state.dirty && !confirm('Leave without saving?')) {
                 return false;
             }
-        })
+        });
     }
 
     componentWillReceiveProps(nextProps) {

@@ -1,8 +1,5 @@
-import
-* as types
-from
-'./actionTypes';
 import courseApi from '../api/mockCourseApi';
+import * as types from './actionTypes';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions.js';
 import toastr from 'toastr';
 
@@ -19,7 +16,6 @@ export function updateCourseSuccess(course) {
 }
 
 export function deleteCourseSuccess(courseId) {
-    console.log('del scc');
     return {type: types.DELETE_COURSE_SUCCESS, courseId};
 }
 
@@ -50,9 +46,7 @@ export function saveCourse(course) {
 export function deleteCourse(courseId) {
     return function (dispatch, getState) {
         dispatch(beginAjaxCall());
-        console.log('del action');
         return courseApi.deleteCourse(courseId)
-            .catch(err => toastr.info('courseApi: ' + err))
             .then(courseId => dispatch(deleteCourseSuccess(courseId)))
             .catch(error => {
                 dispatch(ajaxCallError(error));

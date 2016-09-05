@@ -1,78 +1,63 @@
 import React, {PropTypes} from 'react';
+import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as authorActions from '../../actions/authorActions';
+import AuthorList from './AuthorList';
+import AuthorTable from './AuthorTable';
 
 class AuthorsPage extends React.Component {
     constructor(props, context){
         super(props, context);
 
-        this.state = {
-            author: {firstName: ''}
-        };
-
-        this.onFirstNameChange = this.onFirstNameChange.bind(this);
-        this.onClickSave = this.onClickSave.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
     }
 
-    onFirstNameChange(event){
-        const author = this.state.author;
-        author.firstName = event.target.value;
-        this.setState({author: author});
-    }
-
-    onClickSave(){
-        this.props.dispatch(authorActions.createAuthor(this.state.author));
-    }
-
     onClickDelete(event){
-        this.props.dispatch(authorActions.deleteAuthor(event.target.id));
-    }
-
-    authorRow(author, index){
-        return <div key={index}>{author.firstName}</div>;
+        event.preventDefault();
+        this.props.actions.deleteAuthor(event.target.id);
     }
 
     render(){
+        const {authors} = this.props;
+
         return (
             <div>
                 <h3>Authors</h3>
-                {this.props.authors.map(
-                    (author, index) =>
-                        <div key={index}>
-                            {author.firstName}
-                            <input
-                                id={author.id}
-                                type="submit"
-                                value="Del"
-                                className="btn btn-danger"
-                                onClick={this.onClickDelete}/>
-                        </div>)}
-                <h4>Add author</h4>
-                <input
-                    type="text"
-                    onChange={this.onFirstNameChange}
-                    value={this.state.author.firstName}/>
                 <input
                     type="submit"
-                    value="Save"
+                    value="Add Author"
                     className="btn btn-primary"
-                    onClick={this.onClickSave}/>
+                    onClick={this.redirectToAddAuthorPage}/>
+                <AuthorList
+                    onDelete={this.onClickDelete}
+                    authors={authors}/>
+                <AuthorTable
+                    onDelete={this.onClickDelete}
+                    authors={authors}/>
             </div>
         );
     }
 }
 
 AuthorsPage.propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    authors: PropTypes.array.isRequired
+    authors: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps){
     return {
         authors: state.authors
-    }
+    };
 }
 
-const connectedStateAndProps = connect(mapStateToProps);
+function mapDispatchToProps(dispatch){
+    return {
+        //createAuthor: author => dispatch(authorActions.createAuthor(author)),
+        //deleteAuthor: author => dispatch(authorActions.deleteAuthor(author))
+        actions: bindActionCreators(authorActions, dispatch)
+    };
+}
+
+const connectedStateAndProps = connect(mapStateToProps, mapDispatchToProps);
 export default connectedStateAndProps(AuthorsPage);

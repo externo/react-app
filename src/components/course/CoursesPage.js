@@ -14,14 +14,6 @@ class CoursesPage extends React.Component {
         this.deleteCourse = this.deleteCourse.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-
-    }
-
-    updateCoursesState() {
-
-    }
-
     deleteCourse(event) {
         event.preventDefault();
         this.props.actions.deleteCourse(event.target.id);
@@ -45,8 +37,7 @@ class CoursesPage extends React.Component {
                         onClick={this.redirectToAddCoursePage}/>
                     <CourseList
                         onDelete={this.deleteCourse}
-                        courses={courses}
-                        onChange={this.updateCoursesState}/>
+                        courses={courses}/>
                 </div>
             );
         }
@@ -68,8 +59,6 @@ CoursesPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps){
-    //console.log('state: ' + state);
-    //console.log('ownprops: ' + ownProps);
     if (state.course){
         return {
             course: Object.assign({}, state.course),
