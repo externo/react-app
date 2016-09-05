@@ -6,6 +6,14 @@ import {Table, Column, Cell} from 'fixed-data-table';
 const AuthorTable = ({authors, onDelete}) => {
     const rowHight = 50;
 
+    const _onSortChange = function () {
+        console.log('sort');
+        let colKey = "id";
+        authors = authors.sort(function (a, b) {
+            return a[colKey] > b[colKey];
+        });
+    };
+
     return (
         <Table
         width={400}
@@ -15,7 +23,10 @@ const AuthorTable = ({authors, onDelete}) => {
         headerHeight={rowHight}>
             <Column
             width={100}
-            header={<Cell>ID</Cell>}
+            header={
+                <Cell
+                    onClick={_onSortChange}>ID</Cell>
+            }
             cell={props => (
                 <Cell {...props}>
                     {authors[props.rowIndex].id}
