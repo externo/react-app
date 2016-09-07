@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0334a298-cd5a-43bf-8194-9d5872525909" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/React_node_modules.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/React.iml" afterPath="$PROJECT_DIR$/.idea/React.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/author/AuthorTable.js" afterPath="$PROJECT_DIR$/src/components/author/AuthorTable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/mockCourseApi.js" afterPath="$PROJECT_DIR$/src/api/mockCourseApi.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/author/AuthorsPage.js" afterPath="$PROJECT_DIR$/src/components/author/AuthorsPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/author/ManageAuthorPage.js" afterPath="$PROJECT_DIR$/src/components/author/ManageAuthorPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/course/CourseList.js" afterPath="$PROJECT_DIR$/src/components/course/CourseList.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/course/CoursesPage.js" afterPath="$PROJECT_DIR$/src/components/course/CoursesPage.js" />
     </list>
     <ignored path="React.iws" />
@@ -33,44 +26,69 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AuthorsPage.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/author/AuthorsPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoursesPage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CoursesPage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/course/CoursesPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="52" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthorTable.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/author/AuthorTable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+            <state relative-caret-position="306">
+              <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
               <folding>
-                <marker date="1473251667064" expanded="true" signature="580:732" ph="..." />
+                <element signature="n#!!block;n#constructor#0;n#CoursesPage#0" expanded="false" />
+                <element signature="n#!!block;n#getSortAsc#0;n#CoursesPage#0" expanded="false" />
+                <element signature="n#!!block;n#getSortCol#0;n#CoursesPage#0" expanded="false" />
+                <element signature="n#!!block;n#setSortAsc#0;n#CoursesPage#0" expanded="false" />
+                <element signature="n#!!block;n#setSortCol#0;n#CoursesPage#0" expanded="false" />
+                <element signature="n#!!block;n#redirectToAddCoursePage#0;n#CoursesPage#0" expanded="false" />
+                <element signature="n#!!block;n#deleteCourse#0;n#CoursesPage#0" expanded="false" />
+                <element signature="e#1272#1314#0" expanded="false" />
+                <element signature="n#!!block;n#render#0;n#CoursesPage#0" expanded="false" />
+                <element signature="e#2319#2859#0" expanded="false" />
+                <element signature="e#2358#2834#0" expanded="false" />
+                <element signature="e#2421#2625#0" expanded="false" />
+                <element signature="e#2646#2811#0" expanded="false" />
+                <element signature="e#2889#3151#0" expanded="false" />
+                <element signature="e#2944#3132#0" expanded="false" />
+                <element signature="e#3196#3239#0" expanded="false" />
+                <element signature="n#!!block;n#mapStateToProps#0" expanded="false" />
+                <element signature="e#3308#3431#0" expanded="false" />
+                <element signature="e#3325#3424#0" expanded="false" />
+                <element signature="e#3444#3482#0" expanded="false" />
+                <element signature="n#!!block;n#mapDispatchToProps#0" expanded="false" />
+                <element signature="e#3538#3606#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mockAuthorApi.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/mockAuthorApi.js">
+      <file leaf-file-name="mockCourseApi.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/mockCourseApi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="13" column="17" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="221">
+              <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+              <folding>
+                <element signature="e#30#101#0" expanded="false" />
+                <element signature="e#215#505#0" expanded="false" />
+                <element signature="e#511#776#0" expanded="false" />
+                <element signature="e#782#1068#0" expanded="false" />
+                <element signature="e#1074#1374#0" expanded="false" />
+                <element signature="e#1380#1638#0" expanded="false" />
+                <element signature="n#!!block;n#replaceAll#0" expanded="false" />
+                <element signature="e#19253#19303#0" expanded="false" />
+                <element signature="n#CourseApi#0" expanded="false" />
+                <element signature="n#!!block;n#getAllCourses#0;n#CourseApi#0" expanded="false" />
+                <element signature="e#19401#19519#0" expanded="false" />
+                <element signature="e#19432#19500#0" expanded="false" />
+                <element signature="n#!!block;n#saveCourse#0;n#CourseApi#0" expanded="false" />
+                <element signature="e#19696#20731#0" expanded="false" />
+                <element signature="e#19727#20712#0" expanded="false" />
+                <element signature="e#19892#20001#0" expanded="false" />
+                <element signature="e#20034#20212#0" expanded="false" />
+                <element signature="e#20218#20665#0" expanded="false" />
+                <element signature="e#20240#20272#0" expanded="false" />
+                <element signature="n#!!block;n#deleteCourse#0;n#CourseApi#0" expanded="false" />
+                <element signature="e#20825#21062#0" expanded="false" />
+                <element signature="e#20856#21043#0" expanded="false" />
+                <element signature="e#20874#20932#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,8 +110,9 @@
         <option value="$PROJECT_DIR$/src/components/course/CourseListRow.js" />
         <option value="$PROJECT_DIR$/src/components/course/CourseList.js" />
         <option value="$PROJECT_DIR$/src/components/author/AuthorTable.js" />
-        <option value="$PROJECT_DIR$/src/components/course/CoursesPage.js" />
         <option value="$PROJECT_DIR$/src/components/author/AuthorsPage.js" />
+        <option value="$PROJECT_DIR$/src/api/mockCourseApi.js" />
+        <option value="$PROJECT_DIR$/src/components/course/CoursesPage.js" />
       </list>
     </option>
   </component>
@@ -332,12 +351,12 @@
       <workItem from="1473239767509" duration="519000" />
       <workItem from="1473240299603" duration="920000" />
       <workItem from="1473241236660" duration="239000" />
-      <workItem from="1473241811618" duration="8143000" />
+      <workItem from="1473241811618" duration="11926000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9821000" />
+    <option name="totallyTimeSpent" value="13604000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -752,26 +771,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/mockCourseApi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/course/CourseList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/mockAuthorApi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -786,19 +789,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/course/CoursesPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="52" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/author/AuthorsPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/mockAuthorApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/mockCourseApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+          <folding>
+            <element signature="e#30#101#0" expanded="false" />
+            <element signature="e#215#505#0" expanded="false" />
+            <element signature="e#511#776#0" expanded="false" />
+            <element signature="e#782#1068#0" expanded="false" />
+            <element signature="e#1074#1374#0" expanded="false" />
+            <element signature="e#1380#1638#0" expanded="false" />
+            <element signature="n#!!block;n#replaceAll#0" expanded="false" />
+            <element signature="e#19253#19303#0" expanded="false" />
+            <element signature="n#CourseApi#0" expanded="false" />
+            <element signature="n#!!block;n#getAllCourses#0;n#CourseApi#0" expanded="false" />
+            <element signature="e#19401#19519#0" expanded="false" />
+            <element signature="e#19432#19500#0" expanded="false" />
+            <element signature="n#!!block;n#saveCourse#0;n#CourseApi#0" expanded="false" />
+            <element signature="e#19696#20731#0" expanded="false" />
+            <element signature="e#19727#20712#0" expanded="false" />
+            <element signature="e#19892#20001#0" expanded="false" />
+            <element signature="e#20034#20212#0" expanded="false" />
+            <element signature="e#20218#20665#0" expanded="false" />
+            <element signature="e#20240#20272#0" expanded="false" />
+            <element signature="n#!!block;n#deleteCourse#0;n#CourseApi#0" expanded="false" />
+            <element signature="e#20825#21062#0" expanded="false" />
+            <element signature="e#20856#21043#0" expanded="false" />
+            <element signature="e#20874#20932#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/course/CoursesPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!block;n#constructor#0;n#CoursesPage#0" expanded="false" />
+            <element signature="n#!!block;n#getSortAsc#0;n#CoursesPage#0" expanded="false" />
+            <element signature="n#!!block;n#getSortCol#0;n#CoursesPage#0" expanded="false" />
+            <element signature="n#!!block;n#setSortAsc#0;n#CoursesPage#0" expanded="false" />
+            <element signature="n#!!block;n#setSortCol#0;n#CoursesPage#0" expanded="false" />
+            <element signature="n#!!block;n#redirectToAddCoursePage#0;n#CoursesPage#0" expanded="false" />
+            <element signature="n#!!block;n#deleteCourse#0;n#CoursesPage#0" expanded="false" />
+            <element signature="e#1272#1314#0" expanded="false" />
+            <element signature="n#!!block;n#render#0;n#CoursesPage#0" expanded="false" />
+            <element signature="e#2319#2859#0" expanded="false" />
+            <element signature="e#2358#2834#0" expanded="false" />
+            <element signature="e#2421#2625#0" expanded="false" />
+            <element signature="e#2646#2811#0" expanded="false" />
+            <element signature="e#2889#3151#0" expanded="false" />
+            <element signature="e#2944#3132#0" expanded="false" />
+            <element signature="e#3196#3239#0" expanded="false" />
+            <element signature="n#!!block;n#mapStateToProps#0" expanded="false" />
+            <element signature="e#3308#3431#0" expanded="false" />
+            <element signature="e#3325#3424#0" expanded="false" />
+            <element signature="e#3444#3482#0" expanded="false" />
+            <element signature="n#!!block;n#mapDispatchToProps#0" expanded="false" />
+            <element signature="e#3538#3606#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

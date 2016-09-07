@@ -45,7 +45,7 @@ class AuthorsPage extends React.Component {
         let currSortCol = this.getSortCol();
         let sortCol = event.target.id;
 
-        if (currSortCol!==sortCol && !this.getSortAsc()){
+        if (currSortCol !== sortCol && !this.getSortAsc()) {
             this.setSortAsc();
         }
 

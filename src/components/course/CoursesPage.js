@@ -33,20 +33,20 @@ class CoursesPage extends React.Component {
         this.sortCol = col;
     }
 
+    redirectToAddCoursePage() {
+        browserHistory.push('/course');
+    }
+
     deleteCourse(event) {
         event.preventDefault();
         this.props.actions.deleteCourse(event.target.id);
-    }
-
-    redirectToAddCoursePage() {
-        browserHistory.push('/course');
     }
 
     onSortChange(event) {
         let currSortCol = this.getSortCol();
         let sortCol = event.target.id;
 
-        if (currSortCol!==sortCol && !this.getSortAsc()){
+        if (currSortCol !== sortCol && !this.getSortAsc()) {
             this.setSortAsc();
         }
 
@@ -54,15 +54,25 @@ class CoursesPage extends React.Component {
 
         if (this.getSortAsc()) {
             this.setState({
-                courses: this.props.courses.sort(function (a, b) {
-                    return a[sortCol] > b[sortCol];
+                courses: this.props.courses.sort((a, b) => {
+                    let nameA = a[sortCol].toLowerCase(); // ignore upper and lowercase
+                    let nameB = b[sortCol].toLowerCase(); // ignore upper and lowercase
+                    if (nameA < nameB) {
+                        return -1;
+                    }
+                    if (nameA > nameB) {
+                        return 1;
+                    }
+
+                    // names must be equal
+                    return 0;
                 })
             });
             this.setSortAsc();
         } else {
             this.setState({
-                courses: this.props.courses.sort(function (a, b) {
-                    return a[sortCol] < b[sortCol];
+                courses: this.props.courses.sort((a, b) => {
+                    return a[sortCol] > b[sortCol];
                 })
             });
             this.setSortAsc();
