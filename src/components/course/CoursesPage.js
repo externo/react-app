@@ -55,24 +55,30 @@ class CoursesPage extends React.Component {
         if (this.getSortAsc()) {
             this.setState({
                 courses: this.props.courses.sort((a, b) => {
-                    let nameA = a[sortCol].toLowerCase(); // ignore upper and lowercase
-                    let nameB = b[sortCol].toLowerCase(); // ignore upper and lowercase
-                    if (nameA < nameB) {
+                    let courseA = a[sortCol].toLowerCase(); // ignore upper and lowercase
+                    let courseB = b[sortCol].toLowerCase(); // ignore upper and lowercase
+                    if (courseA < courseB) {
                         return -1;
                     }
-                    if (nameA > nameB) {
+                    if (courseA > courseB) {
                         return 1;
                     }
-
-                    // names must be equal
-                    return 0;
+                    return 0; // names must be equal
                 })
             });
             this.setSortAsc();
         } else {
             this.setState({
                 courses: this.props.courses.sort((a, b) => {
-                    return a[sortCol] > b[sortCol];
+                    let courseA = a[sortCol].toLowerCase(); // ignore upper and lowercase
+                    let courseB = b[sortCol].toLowerCase(); // ignore upper and lowercase
+                    if (courseA > courseB) {
+                        return -1;
+                    }
+                    if (courseA < courseB) {
+                        return 1;
+                    }
+                    return 0; // names must be equal
                 })
             });
             this.setSortAsc();
