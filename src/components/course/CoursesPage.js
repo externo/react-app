@@ -7,11 +7,30 @@ import {browserHistory} from 'react-router';
 import toastr from 'toastr';
 
 class CoursesPage extends React.Component {
-    constructor(props, context){
+    constructor(props, context) {
         super(props, context);
 
+        this.sortAsc = true;
+        this.sortCol = "title";
         this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
         this.deleteCourse = this.deleteCourse.bind(this);
+        this.onSortChange = this.onSortChange.bind(this);
+    }
+
+    getSortAsc() {
+        return this.sortAsc;
+    }
+
+    getSortCol() {
+        return this.sortCol;
+    }
+
+    setSortAsc() {
+        this.sortAsc = !this.sortAsc;
+    }
+
+    setSortCol(col) {
+        this.sortCol = col;
     }
 
     deleteCourse(event) {
@@ -19,14 +38,41 @@ class CoursesPage extends React.Component {
         this.props.actions.deleteCourse(event.target.id);
     }
 
-    redirectToAddCoursePage(){
+    redirectToAddCoursePage() {
         browserHistory.push('/course');
     }
 
-    render(){
+    onSortChange(event) {
+        let currSortCol = this.getSortCol();
+        let sortCol = event.target.id;
+
+        if (currSortCol!==sortCol && !this.getSortAsc()){
+            this.setSortAsc();
+        }
+
+        this.setSortCol(event.target.id);
+
+        if (this.getSortAsc()) {
+            this.setState({
+                courses: this.props.courses.sort(function (a, b) {
+                    return a[sortCol] > b[sortCol];
+                })
+            });
+            this.setSortAsc();
+        } else {
+            this.setState({
+                courses: this.props.courses.sort(function (a, b) {
+                    return a[sortCol] < b[sortCol];
+                })
+            });
+            this.setSortAsc();
+        }
+    }
+
+    render() {
         const {courses} = this.props;
 
-        if (courses.length > 0){
+        if (courses.length > 0) {
             return (
                 <div>
                     <h3>Courses</h3>
@@ -37,6 +83,7 @@ class CoursesPage extends React.Component {
                         onClick={this.redirectToAddCoursePage}/>
                     <CourseList
                         onDelete={this.deleteCourse}
+                        onSortChange={this.onSortChange}
                         courses={courses}/>
                 </div>
             );
@@ -58,8 +105,8 @@ CoursesPage.propTypes = {
     courses: PropTypes.array.isRequired
 };
 
-function mapStateToProps(state, ownProps){
-    if (state.course){
+function mapStateToProps(state, ownProps) {
+    if (state.course) {
         return {
             course: Object.assign({}, state.course),
             courses: state.courses
@@ -71,7 +118,7 @@ function mapStateToProps(state, ownProps){
     };
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(courseActions, dispatch)
     };

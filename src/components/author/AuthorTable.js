@@ -3,16 +3,8 @@ import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
 import {Table, Column, Cell} from 'fixed-data-table';
 
-const AuthorTable = ({authors, onDelete}) => {
+const AuthorTable = ({authors, onDelete, onSortChange}) => {
     const rowHight = 50;
-
-    const _onSortChange = function () {
-        console.log('sort');
-        let colKey = "id";
-        authors = authors.sort(function (a, b) {
-            return a[colKey] > b[colKey];
-        });
-    };
 
     return (
         <Table
@@ -23,10 +15,15 @@ const AuthorTable = ({authors, onDelete}) => {
         headerHeight={rowHight}>
             <Column
             width={100}
-            header={
-                <Cell
-                    onClick={_onSortChange}>ID</Cell>
-            }
+            header={props => (
+                <Cell {...props}>
+                    <input
+                        id="id"
+                        type="submit"
+                        value="ID"
+                        onClick={onSortChange}/>
+                </Cell>
+            )}
             cell={props => (
                 <Cell {...props}>
                     {authors[props.rowIndex].id}
@@ -34,7 +31,15 @@ const AuthorTable = ({authors, onDelete}) => {
             )}/>
             <Column
             width={200}
-            header={<Cell>Name</Cell>}
+            header={props => (
+                <Cell {...props}>
+                    <input
+                        id="lastName"
+                        type="submit"
+                        value="Name"
+                        onClick={onSortChange}/>
+                </Cell>
+            )}
             cell={props => (
                 <Cell {...props}>
                     <Link to={'/author/' + authors[props.rowIndex].id}>
@@ -61,7 +66,8 @@ const AuthorTable = ({authors, onDelete}) => {
 
 AuthorTable.propTypes = {
     authors: PropTypes.array.isRequired,
-    onDelete: PropTypes.func.isRequired
+    onDelete: PropTypes.func.isRequired,
+    onSortChange: PropTypes.func.isRequired
 };
 
 export default AuthorTable;

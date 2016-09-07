@@ -7,23 +7,69 @@ import AuthorList from './AuthorList';
 import AuthorTable from './AuthorTable';
 
 class AuthorsPage extends React.Component {
-    constructor(props, context){
+    constructor(props, context) {
         super(props, context);
 
+        this.sortAsc = true;
+        this.sortCol = "id";
         this.onClickDelete = this.onClickDelete.bind(this);
+        this.onSortChange = this.onSortChange.bind(this);
     }
 
-    onClickDelete(event){
+    getSortAsc() {
+        return this.sortAsc;
+    }
+
+    getSortCol() {
+        return this.sortCol;
+    }
+
+    setSortAsc() {
+        this.sortAsc = !this.sortAsc;
+    }
+
+    setSortCol(col) {
+        this.sortCol = col;
+    }
+
+    onClickDelete(event) {
         event.preventDefault();
         this.props.actions.deleteAuthor(event.target.id);
     }
 
-    redirectToAddAuthorPage(){
+    redirectToAddAuthorPage() {
         browserHistory.push('/author');
     }
 
-    render(){
-        const {authors} = this.props;
+    onSortChange(event) {
+        let currSortCol = this.getSortCol();
+        let sortCol = event.target.id;
+
+        if (currSortCol!==sortCol && !this.getSortAsc()){
+            this.setSortAsc();
+        }
+
+        this.setSortCol(event.target.id);
+
+        if (this.getSortAsc()) {
+            this.setState({
+                authors: this.props.authors.sort(function (a, b) {
+                    return a[sortCol] > b[sortCol];
+                })
+            });
+            this.setSortAsc();
+        } else {
+            this.setState({
+                authors: this.props.authors.sort(function (a, b) {
+                    return a[sortCol] < b[sortCol];
+                })
+            });
+            this.setSortAsc();
+        }
+    }
+
+    render() {
+        const authors = this.props.authors;
 
         return (
             <div>
@@ -38,6 +84,7 @@ class AuthorsPage extends React.Component {
                     authors={authors}/>
                 <AuthorTable
                     onDelete={this.onClickDelete}
+                    onSortChange={this.onSortChange}
                     authors={authors}/>
             </div>
         );
@@ -49,13 +96,13 @@ AuthorsPage.propTypes = {
     actions: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps) {
     return {
         authors: state.authors
     };
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
         //createAuthor: author => dispatch(authorActions.createAuthor(author)),
         //deleteAuthor: author => dispatch(authorActions.deleteAuthor(author))
